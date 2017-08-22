@@ -18,7 +18,7 @@ function getByClass(oParent,cclass){
 
 function getStyle(obj,attr){
 	if(obj.currentStyle)
-		return obj.currentStyle[attr];
+		return obj.currentStyle(attr,false);
 	else
-		return obj.getComputedStyle(obj,false)[attr];
+		return getComputedStyle(obj,false)[attr];
 }

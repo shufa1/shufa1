@@ -9,6 +9,7 @@ window.onload=function(){
 	
 	window.onresize=function(){
 		Header.contentAuto();
+		window.location.reload();
 	}
 
 	function init(){
@@ -25,6 +26,10 @@ window.onload=function(){
 
 		var oMenu=getByClass(oContent,'menu')[0];
 		var aMenuDot=getByClass(oMenu,'menuDot');
+
+		var oAudio=getByClass(oHeader,'audio')[0];
+		var oMusicIcon=getByClass(oHeader,'music-icon')[0];
+		var bStop=false;
 
 		function init(){
 			contentAuto();
@@ -74,9 +79,25 @@ window.onload=function(){
 			}
 		}
 
+		function play(){
+			oMusicIcon.onclick=function(){
+				if(bStop){
+					oMusicIcon.style.background='url(./img/musicoff.gif) no-repeat';
+					oAudio.pause();
+					bStop=!bStop;
+				}
+				else{
+					oMusicIcon.style.background='url(./img/musicon.gif) no-repeat';
+					oAudio.play();
+					bStop=!bStop;
+				}
+			}
+		}
+
 		function bind(){
 			mouseWheel();
 			bindNav();
+			play();
 		}
 
 		function mouseWheel(){

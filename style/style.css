@@ -30,10 +30,14 @@ body {
   float: left;
   margin-top: 36px;
 }
-.header-content .music-logo {
+.header-content .music-icon {
+  width: 14px;
+  height: 14px;
   position: absolute;
   left: 200px;
   top: 54px;
+  background: url('../img/musicon.gif') no-repeat;
+  cursor: pointer;
 }
 .header-content .nav {
   float: right;
